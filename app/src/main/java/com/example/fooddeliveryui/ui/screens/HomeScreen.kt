@@ -204,6 +204,9 @@ fun HomeScreen(
                                     style = TextStyles.txtSansSerifRegular17White()
                                 )
                                 Spacer(modifier = Modifier.padding(top = 4.dp))
+
+//                                CustomButton(text = "Buy now", shape = ButtonShape.ROUNDED_BORDER_8, padding = ButtonPadding.PADDING_H16_V8, variant = ButtonVariant.FILL_WHITE, style = ButtonStyle.SANS_SERIF_12_GREEN ) {}
+
                                 ElevatedButton(
                                     onClick = { }, shape = RoundedCornerShape(6.dp)
                                 ) {

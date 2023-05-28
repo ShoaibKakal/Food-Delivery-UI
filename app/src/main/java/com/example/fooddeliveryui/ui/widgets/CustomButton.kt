@@ -24,9 +24,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fooddeliveryui.ui.theme.Green
+import com.example.fooddeliveryui.ui.util.TextStyles
 
 enum class ButtonShape {
     SQUARE,
+    ROUNDED_BORDER_6,
     ROUNDED_BORDER_8,
     ROUNDED_BORDER_24,
     ROUNDED_BORDER_20,
@@ -35,7 +37,8 @@ enum class ButtonShape {
 enum class ButtonPadding {
     PADDING_ALL_16,
     PADDING_TOP_17,
-    PADDING_ALL_17
+    PADDING_ALL_17,
+    PADDING_H16_V8
 }
 
 enum class ButtonVariant {
@@ -49,7 +52,8 @@ enum class ButtonStyle {
     INTER_REGULAR_12,
     INTER_REGULAR_12_GREEN,
     INTER_BOLD_12_GREEN,
-    SANS_SERIF_BOLD_10_GREEN
+    SANS_SERIF_BOLD_10_GREEN,
+    SANS_SERIF_12_GREEN,
 }
 
 @Composable
@@ -66,11 +70,10 @@ fun CustomButton(
     Box(
         modifier = modifier
             .clip(getButtonShape(shape))
+            .clickable { onTap() }
             .getVariant(variant)
             .getPadding(padding)
-            .clickable {
-                       onTap()
-            },
+            ,
     ) {
         Text(text = text, style = getTextStyle(style))
     }
@@ -102,6 +105,9 @@ private fun getTextStyle(style: ButtonStyle?): TextStyle {
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.SansSerif,
             )
+        }
+        ButtonStyle.SANS_SERIF_12_GREEN ->{
+            TextStyles.txtSansSerifRegular12Green()
         }
 
 
@@ -161,6 +167,10 @@ private fun getButtonShape(shape: ButtonShape?): Shape {
             RoundedCornerShape(24)
         }
 
+        ButtonShape.ROUNDED_BORDER_6 ->{
+            RoundedCornerShape(6)
+        }
+
         else -> {
             RoundedCornerShape(0)
         }
@@ -177,6 +187,9 @@ private fun Modifier.getPadding(value: ButtonPadding?): Modifier {
 
         ButtonPadding.PADDING_TOP_17 ->
             this.padding(top = 17.dp)
+
+        ButtonPadding.PADDING_H16_V8 ->
+            this.padding(horizontal = 16.dp, vertical = 8.dp)
 
         else -> {
             this.padding(all= 8.dp)

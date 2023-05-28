@@ -44,6 +44,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.fooddeliveryui.ui.screens.CartScreen
 import com.example.fooddeliveryui.ui.screens.ChatScreen
 import com.example.fooddeliveryui.ui.screens.DetailProductScreen
 import com.example.fooddeliveryui.ui.screens.HomeScreen
@@ -64,7 +65,7 @@ fun NavigationGraph(navController: NavHostController, onClickForOpenFilterBottom
             })
         }
         composable(BottomNavItem.Buy.screen_route) {
-            HomeScreen(onClickForOpenFilterBottomSheet, {})
+            CartScreen()
         }
         composable(BottomNavItem.Profile.screen_route) {
             ProfileScreen()

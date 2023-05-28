@@ -46,6 +46,7 @@ fun SecondaryIconButton(
     @DrawableRes icon: Int,
     width: Int = 50,
     height: Int = 55,
+    backgroundColor:Color = PaleOrange40,
     onIconClicked: () -> Unit = {}
 ) {
     Card(
@@ -57,7 +58,7 @@ fun SecondaryIconButton(
             Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .background(PaleOrange40)
+                .background(backgroundColor)
                 .clickable { onIconClicked() },
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -89,10 +90,10 @@ fun ItemFilter(filter: String, onFilterClicked: () -> Unit) {
 }
 
 @Composable
-fun RoundBackgroundIcon(@DrawableRes icon: Int, bgColor: Color) {
+fun RoundBackgroundIcon(@DrawableRes icon: Int, bgColor: Color, buttonSize:Int=34, iconSize:Int=16) {
     Box(
         Modifier
-            .size(34.dp)
+            .size(buttonSize.dp)
             .clip(CircleShape)
             .background(bgColor),
         contentAlignment = Alignment.Center
@@ -100,7 +101,7 @@ fun RoundBackgroundIcon(@DrawableRes icon: Int, bgColor: Color) {
         Image(
             painter = painterResource(id = icon),
             contentDescription = "icon",
-            modifier = Modifier.size(16.dp)
+            modifier = Modifier.size(iconSize.dp)
         )
     }
 }

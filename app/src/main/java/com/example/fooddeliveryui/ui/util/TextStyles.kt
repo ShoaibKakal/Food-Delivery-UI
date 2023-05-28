@@ -134,6 +134,15 @@ object TextStyles {
         )
     }
 
+    fun txtSansSerifBold18White(): TextStyle {
+        return TextStyle(
+            fontSize = 18.sp,
+            color = Color.White,
+            fontFamily = FontFamily.SansSerif,
+            fontWeight = FontWeight.Bold
+        )
+    }
+
     fun txtSansSerifRegular12PaleRed100(): TextStyle {
         return TextStyle(
             fontSize = 12.sp,
@@ -148,6 +157,15 @@ object TextStyles {
             color = PaleRed100,
             fontFamily = FontFamily.SansSerif,
             fontWeight = FontWeight.W600
+        )
+    }
+
+    fun txtSansSerifSemiBold14Green(): TextStyle {
+        return TextStyle(
+            fontSize = 14.sp,
+            color = Green,
+            fontFamily = FontFamily.SansSerif,
+            fontWeight = FontWeight.Bold
         )
     }
 
